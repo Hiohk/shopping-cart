@@ -11,7 +11,13 @@
       :state="item.goods_state"
       :count="item.goods_count"
       @state-change="getNewState"
-    ></Goods>
+    >
+      <Counter
+        :num="item.goods_count"
+        :id="item.id"
+        @num-change="getNewNum(item, $event)"
+      ></Counter>
+    </Goods>
     <Footer
       :isfull="fullState"
       :amount="amount"
@@ -27,12 +33,14 @@ import bus from "@/components/eventBus.js";
 import MyHeader from "@/components/Header/Header.vue";
 import Goods from "@/components/Goods/Goods.vue";
 import Footer from "@/components/Footer/Footer.vue";
+import Counter from "@/components/Counter/Counter.vue";
 
 export default {
   components: {
     MyHeader,
     Goods,
     Footer,
+    Counter,
   },
   data() {
     return {
@@ -84,6 +92,9 @@ export default {
     },
     getFullState(val) {
       this.list.forEach((item) => (item.goods_state = val));
+    },
+    getNewNum(val, e) {
+      val.goods_count = e;
     },
   },
 };

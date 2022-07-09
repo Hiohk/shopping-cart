@@ -33,18 +33,19 @@ export default {
   methods: {
     sub() {
       if (this.num - 1 === 0) return;
-      const obj = {
-        id: this.id,
-        value: this.num - 1,
-      };
-      bus.$emit("share", obj);
+      this.$emit("num-change", this.num - 1);
+      // const obj = {
+      //   id: this.id,
+      //   value: this.num - 1,
+      // };
+      // bus.$emit("share", obj);
     },
     add() {
-      const obj = {
-        id: this.id,
-        value: this.num + 1,
-      };
-      bus.$emit("share", obj);
+      // const obj = {
+      //   id: this.id,
+      //   value: this.num + 1,
+      // };
+      this.$emit("num-change", this.num + 1);
     },
   },
 };
