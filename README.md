@@ -1,4 +1,4 @@
-# shopping-cart
+# shopping-cart 购物车案例
 
 ## Project setup
 ```
